@@ -9,6 +9,9 @@ import (
 
 // BuildCurlCommand converts an http.Request into a curl command.
 func BuildCurlCommand(req *http.Request) (string, error) {
+	if req == nil {
+		return "", fmt.Errorf("request is nil")
+	}
 	var cmd strings.Builder
 
 	cmd.WriteString("curl ")
